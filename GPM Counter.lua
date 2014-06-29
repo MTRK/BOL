@@ -3,7 +3,8 @@
 
 local GoldA = 0
 local GoldE = 0
-local MaxValue = 475
+local GoldC = 0
+local MaxValue = 0
 
 function OnLoad()
 print("GPM Tracker loaded.")
@@ -16,6 +17,7 @@ GoldA = myHero.gold
 if GoldA < MaxValue then GoldE=((MaxValue-GoldA)+GoldE) MaxValue = math.floor(GoldA)
 else MaxValue = math.floor(GoldA) 
   end
+  GoldC = (GoldA+GoldE)
 end
 
 function OnDraw()
@@ -30,11 +32,5 @@ DrawText("GoldA = " ..  math.ceil(GoldA) ..".", 13, 10, 30, ARGB(255,255,255,255
 			DrawText("max = " ..  MaxValue ..".", 13, 40, 120, ARGB(255,255,255,255))
 ]]
 --Draw GPM
-DrawText("Your GPM is : " .. math.floor(GoldE/GPM) .. ".", 13, 10, 30, ARGB(255,255,255,255))
+DrawText("Your GPM is : " .. math.floor(GoldC/GPM) .. ".", 13, 10, 30, ARGB(255,255,255,255))
 end
-
---[[	local clock = os.clock
-function sleep(n) 
-  while clock() - t0 <= n do end
-end
-end]]
